@@ -1,40 +1,41 @@
 import React from 'react';
-import { professores } from '../database';
+import { alunos } from '../database';
 
-export default class SingleProf extends React.Component {
+export default class SingleAluno extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      professores: {},
+      alunos: {},
     }
   }
 
   componentDidMount() {
     let data = {
-      professor: professores
+      aluno: alunos
     }
     this.setState({
-      image: data.professor.image,
-      name: data.professor.name,
-      birth: data.professor.birth,
-      salary: data.professor.salary
+      image: data.aluno.image,
+      name: data.aluno.name,
+      birth: data.aluno.birth,
+      grades: data.aluno.grades,
+      enrollment: data.aluno.enrollment
     });
   }
 
   render() {
-    const { image, name, birth, salary } = this.state;
+    const { image, name, birth, enrollment, grades } = this.state;
     return (
         <section className="row-background mt-0 row">
           <div className="row-section container">
             <div className="col-md-12 p-0">
-              <h2 className="row-title mb-3">Professores</h2>
+              <h2 className="row-title mb-3">Alunos</h2>
               <div className="row">
                 <div className="row-image col-md-4 col-sm-4">
                   <img src={image} />
-                  <h3>Prof. Andreia Gomes {name}</h3>
+                  <h3>{name}</h3>
                   <h4>Data de Nascimento: {birth}</h4>
-                  <h4>Salário: {salary}</h4>
-                
+                  <h4>Notas: {grades}</h4>
+                  <h4>Matrícula: {enrollment}</h4>
               </div>
             </div>
             </div>

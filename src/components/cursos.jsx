@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Link} from "react-router-dom";
 
 export default class Cursos extends React.Component {
   render() {
@@ -12,7 +13,7 @@ export default class Cursos extends React.Component {
                 <div className="row-image col-md-4 col-sm-4">
                   <img src="./assets/cursos/curso_1.jpg" />
                   <h4>História</h4>
-                  <p className="mb-0"><a><i className="fa-solid fa-angles-right"></i> Plano de estudos</a></p>
+                  <Link to={'singleCurso'}><p className="mb-0"><a><i className="fa-solid fa-angles-right"></i> Plano de estudos</a></p></Link>
                   
                 </div>
                 <div className="row-image col-md-4 col-sm-4">

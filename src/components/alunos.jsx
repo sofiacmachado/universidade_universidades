@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Link} from "react-router-dom";
+
 
 export default class Alunos extends React.Component {
   render() {
@@ -12,7 +14,7 @@ export default class Alunos extends React.Component {
                 <div className="row-image col-md-4 col-sm-4">
                   <img src="./assets/alunos/aluno_1.jpg" />
                   <h4>António Lopes</h4>
-                  <p className="mb-0"><a><i className="fa-solid fa-angles-right"></i> Mais informações</a></p>
+                  <Link to={'singleAluno'}><p className="mb-0"><a><i className="fa-solid fa-angles-right"></i> Mais informações</a></p></Link>
                   
                 </div>
                 <div className="row-image col-md-4 col-sm-4">
