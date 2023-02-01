@@ -9,6 +9,10 @@ export default class SingleCurso extends React.Component {
     }
   }
 
+/*   turnOnEdit() {
+
+  }
+ */
   componentDidMount() {
     let data = {
       curso: cursos
@@ -40,7 +44,7 @@ export default class SingleCurso extends React.Component {
                   <li>{thirdSemesterClasses}</li>
               </div>
             </div>
-            <button className="btn btn-primary">Edit</button>
+            <button className="btn btn-primary" /* onClick={turnOnEdit} */>Edit</button>
             </div>
           </div>
         </section>
