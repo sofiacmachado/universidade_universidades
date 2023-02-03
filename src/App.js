@@ -9,8 +9,9 @@ import SingleProf from './components/singleProf';
 import SingleAluno from "./components/singleAluno";
 import SingleCurso from "./components/singleCurso";
 
+
 export default function App() {
-  return (
+    return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout />}>
@@ -18,7 +19,8 @@ export default function App() {
           <Route path="/alunos" element={<Alunos />} />
           <Route path="/professores" element={<Professores />} />
           <Route path="/cursos" element={<Cursos />} />
-          <Route path="/professores/singleProf" element={<SingleProf />} />
+
+          <Route path={`/professores/singleProf/:id`} element={<SingleProf />} />
           <Route path="/alunos/singleAluno" element={<SingleAluno />} />
           <Route path="/cursos/singleCurso" element={<SingleCurso />} />
         </Route>
