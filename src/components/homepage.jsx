@@ -1,6 +1,9 @@
 import React from 'react';
 import { CURSOSDATA, ALUNOSDATA, PROFESSORESDATA } from '../database';
 import { Link } from 'react-router-dom';
+import img1 from "../assets/universidade_das_universidades_1.jpg";
+import img2 from "../assets/universidade_das_universidades_2.jpg";
+import img3 from "../assets/universidade_das_universidades_3.jpg";
 
 const Homepage = () => {
 
@@ -8,40 +11,6 @@ const Homepage = () => {
     const alunosList = ALUNOSDATA.slice(0,3);
     const profList = PROFESSORESDATA.slice(0,3);
 
-
-    function slideshow() {
-        var slideIndex = 0;
-        var timeAuto = setTimeout(autoSlides, 3000);
-        showSlides(slideIndex);
-
-        // Next/previous controls
-        function plusSlides(n) {
-            let slides = document.getElementsByClassName("mySlides");
-            slideIndex += n;
-            if (slideIndex >= slides.length) {slideIndex = 0}
-            if (slideIndex < 0) {slideIndex = slides.length - 1}
-            showSlides(slideIndex);
-            clearTimeout(timeAuto);
-            timeAuto = setTimeout(autoSlides, 3000);
-        }
-
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slides[n].style.display = "block";
-        }
-
-        function autoSlides() {
-            let slides = document.getElementsByClassName("mySlides");
-            slideIndex++;
-            if (slideIndex >= slides.length) {slideIndex = 0}
-            showSlides(slideIndex);
-            timeAuto = setTimeout(autoSlides, 3000);
-        }
-    }
 
     return (
         <React.Fragment>
@@ -51,7 +20,7 @@ const Homepage = () => {
 
             <Link to="/cursos">
                 <div className="mySlides">
-                    <img src="./assets/universidade_das_universidades_1.jpg" />
+                    <img src={img1} />
                     <div className="hero-citation">
                         <h2 className="hero-title">CURSOS</h2>
                         <h3 className="hero-subtitle">Consulta os cursos disponíveis</h3>
@@ -61,7 +30,7 @@ const Homepage = () => {
     
             <Link to="/professores">
                 <div className="mySlides">
-                    <img src="./assets/universidade_das_universidades_2.jpg" />
+                    <img src={img2} />
                     <div className="hero-citation">
                         <h2 className="hero-title">PROFESSORES</h2>
                         <h3 className="hero-subtitle">Consulta o corpo docente</h3>
@@ -71,7 +40,7 @@ const Homepage = () => {
                 
             <Link to="/alunos">
                 <div className="mySlides">
-                    <img src="./assets/universidade_das_universidades_3.jpg" />
+                    <img src={img3} />
                     <div className="hero-citation">
                         <h2 className="hero-title">ALUNOS</h2>
                         <h3 className="hero-subtitle">Consulta a listagem de alunos</h3>
@@ -96,7 +65,6 @@ const Homepage = () => {
                                 return (
                                     <div key={id} className="row-image col-md-4 col-sm-4">
                                         <Link to={`/cursos/singleCurso/${id}`}>
-                                            <img src={curso.image} />
                                             <h4>{curso.name}</h4>
                                             <p className="mb-0">Grau: Licenciatura</p>
                                             <p>Duração: {Object.keys(curso.semester).length} semestres</p>
@@ -120,7 +88,6 @@ const Homepage = () => {
                             return(
                                 <div key={id} className="row-image col-md-4 col-sm-4">
                                     <Link to={`/professores/singleProf/${id}`}>
-                                        <img src={prof.image} />
                                         <h4>Prof. {prof.name}</h4>
                                     </Link>
                                 </div>
@@ -141,8 +108,7 @@ const Homepage = () => {
                             {alunosList.map((aluno, id) => {
                                 return(
                                     <div key={id} className="row-image col-md-4 col-sm-4">
-                                        <Link to={`/professores/singleAluno/${id}`}>
-                                            <img src={aluno.image} />
+                                        <Link to={`/alunos/singleAluno/${id}`}>
                                             <h4>{aluno.name}</h4>
                                         </Link>
                                     </div>

@@ -1,43 +1,41 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { PROFESSORESDATA, setProfessorData } from '../../database';
 
 const SingleProf = () => {
  
+  const navigate = useNavigate();
+
   const { id } = useParams();
 
   const professor = PROFESSORESDATA[id];
 
   const [profInfo, setProfInfo] = useState({
-      image: professor.image,
       name: professor.name,
       birth: professor.birth,
       salary: professor.salary
   })
 
-const [edit, setEdit] = useState(false);
+  const prettyBirth = new Date(profInfo.birth).toLocaleDateString();
 
-  function turnOnEdit() {
-    if( edit === false ) {
-      setEdit( true )
-    }
-  }
+  const [edit, setEdit] = useState(false);
 
   function submitData(e) {
+    console.log('submit')
     e.preventDefault();
-    if( edit === true ) {
-      setProfessorData(id, {
-        image: profInfo.image,
-        name: profInfo.name,
-        birth: profInfo.birth,
-        salary: profInfo.salary
-      });
-      setEdit(false)
-    }
-    
+    setProfessorData(id, {
+      name: profInfo.name,
+      birth: profInfo.birth,
+      salary: profInfo.salary
+    });
+    setEdit(false);
   }
 
-  const prettyBirth = new Date(profInfo.birth).toLocaleDateString();
+  function deleteProf() {
+    setEdit(false);
+    PROFESSORESDATA.splice(id, 1);
+    navigate('/professores');
+  }
 
 return (
   <section className="row-background mt-0 row">
@@ -47,23 +45,28 @@ return (
           <h2 className="row-title mb-3">{profInfo.name}</h2>
           <div className="row">
             <div className="row-image col-md-4 col-sm-4">
-              <img src={profInfo.image} />
-              <h4>Data de Nascimento: {prettyBirth}</h4>
-              <h4>Salário: {profInfo.salary}€</h4>
+            <ul className="form-submit-list">
+              <li className="form-submit-list-item">
+                <h4>Data de Nascimento: {prettyBirth}</h4>
+              </li>
+              <li className="form-submit-list-item">
+                <h4>Salário: {profInfo.salary}€</h4>
+              </li>
+            </ul>
           </div>
           </div>
-          <button className="btn btn-primary" onClick={turnOnEdit}>Editar</button>
+          <button className="btn btn-primary" onClick={() => setEdit(true)}>Editar</button>
         </div>) 
         : 
-        (<form onSubmit={((e) => e, submitData)} className="col-md-12 p-0">
+        (<form onSubmit={submitData} className="col-md-12 p-0">
           <div className="row">
             <div className="row-image col-md-4 col-sm-4">
-              <ul>
-                <li>
+              <ul className="form-submit-list">
+                <li className="form-submit-list-item">
                   <label className="label-text" htmlFor="inputName">Nome</label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control mb-2"
                     id="inputName"
                     placeholder={profInfo.name}
                     value={profInfo.name}
@@ -72,15 +75,13 @@ return (
                     required
                   />
                 </li>
-                <li>
-                  <img src={profInfo.image} />
-                </li>
-                <li>
+
+                <li className="form-submit-list-item">
                   <label className="label-text" htmlFor="inputBirth">Data de Nascimento</label>
                   <input 
                     type="date" 
                     id="inputBirth" 
-                    className="form-control"
+                    className="form-control mb-2"
                     placeholder={profInfo.birth}
                     //value={new Date(profInfo.birth).toISOString().split("T")[0]}
                     value={profInfo.birth}
@@ -93,23 +94,25 @@ return (
                     required
                   />
                 </li>
-                <li>
+
+                <li className="form-submit-list-item">
                   <label className="label-text" htmlFor="inputSalary">Salário</label>
                   <input
                       type="number"
-                      className="form-control"
+                      className="form-control mb-2"
                       id="inputSalary"
                       placeholder={`${profInfo.salary}$`}
                       value={profInfo.salary}
                       onChange={(e) => setProfInfo({ ...profInfo, salary: e.target.value })}
-                      maxLength="200"
+                      maxLength="5"
                       required
                   />
                 </li>
               </ul>
             </div>
           </div>
-          <button type="submit" className="btn btn-primary mt-3">Guardar</button>
+          <button type="submit" className="btn btn-primary mt-3 mr-3">Guardar</button>
+          <button className="btn btn-danger mt-3" onClick={deleteProf}>Apagar</button>
         </form>
         )}
         </div>
