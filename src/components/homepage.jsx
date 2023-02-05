@@ -92,10 +92,10 @@ const Homepage = () => {
                     <div className="col-md-12 p-0">
                         <h2 className="row-title mb-3">Cursos</h2>
                         <div className="row">
-                            {cursosList.map((curso) => {
+                            {cursosList.map((curso, id) => {
                                 return (
-                                    <div key={curso.id} className="row-image col-md-4 col-sm-4">
-                                        <Link to={`/cursos/singleCurso/${curso.id}`}>
+                                    <div key={id} className="row-image col-md-4 col-sm-4">
+                                        <Link to={`/cursos/singleCurso/${id}`}>
                                             <img src={curso.image} />
                                             <h4>{curso.name}</h4>
                                             <p className="mb-0">Grau: Licenciatura</p>
@@ -116,10 +116,10 @@ const Homepage = () => {
                 <div className="col-md-12 p-0">
                     <h2 className="row-title mb-3">Professores</h2>
                     <div className="row">
-                        {profList.map((prof) => {
+                        {profList.map((prof, id) => {
                             return(
-                                <div key={prof.id} className="row-image col-md-4 col-sm-4">
-                                    <Link to={`/professores/singleProf/${prof.id}`}>
+                                <div key={id} className="row-image col-md-4 col-sm-4">
+                                    <Link to={`/professores/singleProf/${id}`}>
                                         <img src={prof.image} />
                                         <h4>Prof. {prof.name}</h4>
                                     </Link>
@@ -138,10 +138,10 @@ const Homepage = () => {
                     <div className="col-md-12 p-0">
                         <h2 className="row-title mb-3">Alunos</h2>
                         <div className="row">
-                            {alunosList.map((aluno) => {
+                            {alunosList.map((aluno, id) => {
                                 return(
-                                    <div key={aluno.id} className="row-image col-md-4 col-sm-4">
-                                        <Link to={`/professores/singleAluno/${aluno.id}`}>
+                                    <div key={id} className="row-image col-md-4 col-sm-4">
+                                        <Link to={`/professores/singleAluno/${id}`}>
                                             <img src={aluno.image} />
                                             <h4>{aluno.name}</h4>
                                         </Link>

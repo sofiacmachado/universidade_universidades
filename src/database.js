@@ -1,63 +1,60 @@
 const CURSOSDATA = [
     {
-        id: 0,
         image: "/src/assets/cursos/curso_1.jpg",
         name: 'História',
-        semester: {
-            firstSemester: {
+        semester: [
+            {
                 classes: ['Disciplina1', 'Disciplina2', 'Disciplina3']
             },
-            secondSemester: {
+            {
                 classes: ['Disciplina1', 'Disciplina2', 'Disciplina3']
             },
-            thirdSemester: {
+            {
                 classes: ['Disciplina1', 'Disciplina2', 'Disciplina3']
             }
-        }
+        ]
     },
     {
-        id: 1,
         image: "/src/assets/cursos/curso_2.jpg",
         name: 'Engenharia Informática',
-        semester: {
-            firstSemester: {
+        semester: [
+            {
                 classes: ['Disciplina1', 'Disciplina2', 'Disciplina3']
             },
-            secondSemester: {
+            {
                 classes: ['Disciplina1', 'Disciplina2', 'Disciplina3']
             },
-            thirdSemester: {
+            {
                 classes: ['Disciplina1', 'Disciplina2', 'Disciplina3']
             }
-        }
+        ]
     },
     {
-        id: 2,
         image: "/src/assets/cursos/curso_3.jpg",
         name: 'Marketing',
-        semester: {
-            firstSemester: {
+        semester: [
+            {
                 classes: ['Disciplina1', 'Disciplina2', 'Disciplina3']
             },
-            secondSemester: {
+            {
                 classes: ['Disciplina1', 'Disciplina2', 'Disciplina3']
             },
-            thirdSemester: {
+            {
                 classes: ['Disciplina1', 'Disciplina2', 'Disciplina3']
             }
-        }
+        ]
     },
 ]
 
 function setCursoData(id, data) {
+    console.log('porra', id, CURSOSDATA)
     const curso = CURSOSDATA[id];
     curso.image = data.image;
     curso.name = data.name;
     curso.semester = data.semester;
-    curso.firstSemester = data.firstSemester;
-    curso.secondSemester = data.secondSemester;
-    curso.thirdSemester = data.thirdSemester;
-    curso.classes = data.classes;
+    curso.firstSemesterClasses = data.semester[0].classes;
+    curso.secondSemesterClasses = data.semester[1].classes;
+    curso.thirdSemesterClasses = data.semester[2].classes
 }
 
 const PROFESSORESDATA = [
@@ -101,7 +98,7 @@ const ALUNOSDATA = [
         id: 0,
         image: '/src/assets/alunos/aluno_1.jpg',
         name: 'António Lopes',
-        birth: new Date(2004, 4, 10).toLocaleDateString(),
+        birth: new Date(2004, 4, 10).toISOString().split("T")[0],
         enrollment: '1005',
         grades: [14, 12, 16]
     },
@@ -109,7 +106,7 @@ const ALUNOSDATA = [
         id: 1,
         image: '/src/assets/alunos/aluno_1.jpg',
         name: 'Francisca Pereira',
-        birth: new Date(2002, 10, 8).toLocaleDateString(),
+        birth: new Date(2002, 10, 8).toISOString().split("T")[0],
         enrollment: '1006',
         grades: [14, 12, 16]
     },
@@ -117,7 +114,7 @@ const ALUNOSDATA = [
         id: 2,
         image: '/src/assets/alunos/aluno_1.jpg',
         name: 'Cristina Peixoto',
-        birth: new Date(2004, 11, 4).toLocaleDateString(),
+        birth: new Date(2004, 11, 4).toISOString().split("T")[0],
         enrollment: '1007',
         grades: [13, 15, 14]
     },
@@ -125,7 +122,7 @@ const ALUNOSDATA = [
         id: 3,
         image: '/src/assets/alunos/aluno_1.jpg',
         name: 'João Duarte',
-        birth: new Date(2004, 9, 16).toLocaleDateString(),
+        birth: new Date(2004, 9, 16).toISOString().split("T")[0],
         enrollment: '1008',
         grades: [18, 17, 18]
     },
@@ -133,7 +130,7 @@ const ALUNOSDATA = [
         id: 4,
         image: '/src/assets/alunos/aluno_1.jpg',
         name: 'Rodrigo Antunes',
-        birth: new Date(2003, 5, 14).toLocaleDateString(),
+        birth: new Date(2003, 5, 14).toISOString().split("T")[0],
         enrollment: '1009',
         grades: [14, 15, 11]
     },
@@ -141,7 +138,7 @@ const ALUNOSDATA = [
         id: 5,
         image: '/src/assets/alunos/aluno_1.jpg',
         name: 'Eduarda Luís',
-        birth: new Date(2001, 8, 25).toLocaleDateString(),
+        birth: new Date(2001, 8, 25).toISOString().split("T")[0],
         enrollment: '1010',
         grades: [16, 14, 15]
     }

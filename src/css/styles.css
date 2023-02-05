@@ -149,6 +149,34 @@ a:hover {
     font-weight: 500;
 }
 
+
+/* Items List */
+.btn-element-border {
+    padding: 0;
+    margin: 0;
+    border-radius: 100px;
+    height: 20px;
+}
+.btn-element {
+    padding: 0;
+    margin: 0;
+    height: 18px;
+    width: 18px;
+    border-radius: 100px;
+}
+
+.form-submit-list {
+    padding: 0;
+    margin: 0;
+}
+
+.form-submit-list-item {
+    list-style-type: none;
+}
+.add-item-form {
+    background-color: #ecebeb;
+}
+
 /* Footer */
 
 footer .row {
@@ -160,4 +188,3 @@ footer .row {
     justify-content: end;
 }
 
-/* Cursos Page */
