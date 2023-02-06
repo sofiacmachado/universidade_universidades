@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar({isSubmitted, setIsSubmitted}) {
     return (
         <header>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -10,10 +10,17 @@ function Navbar() {
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-                <li className="nav-item nav-link"><Link to="cursos">Cursos</Link></li>
-                <li className="nav-item nav-link"><Link to="professores">Professores</Link></li>
-                <li className="nav-item nav-link"><Link to="alunos">Alunos</Link></li>
-                <li className="nav-item nav-link" type="button">Log In</li>
+                {isSubmitted ?
+                (<>
+                  <li className="nav-item nav-link"><Link to="cursos">Cursos</Link></li>
+                  <li className="nav-item nav-link"><Link to="professores">Professores</Link></li>
+                  <li className="nav-item nav-link"><Link to="alunos">Alunos</Link></li>
+                  <li className="nav-item nav-link" type="button" onClick={() => setIsSubmitted(false)} ><Link to="/">Log Out</Link></li>
+                </>
+                )
+              :(
+                <></>
+              )}
               </div>
             </div>
           </nav>

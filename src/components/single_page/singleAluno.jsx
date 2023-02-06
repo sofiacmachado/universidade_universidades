@@ -17,29 +17,36 @@ const SingleAluno = () => {
     grades: aluno.grades
   })
 
-  const [edit, setEdit] = useState(false);
+  //Birth Format
+  const prettyBirth = new Date(alunoInfo.birth).toLocaleDateString();
 
+  const [edit, setEdit] = useState(false);
+  
+  //Submit
   function submitData(e) {
     e.preventDefault();
-      setAlunoData(id, {
-        name: alunoInfo.name,
-        birth: alunoInfo.birth,
-        enrollment: alunoInfo.enrollment,
-        grades: alunoInfo.grades
-      });
+    setAlunoData(id, {
+      name: alunoInfo.name,
+      birth: alunoInfo.birth,
+      enrollment: alunoInfo.enrollment,
+      grades: alunoInfo.grades
+    });
       setEdit(false);
     }
-  
+
+  //Delete Aluno
   function deleteAluno() {
     setEdit(false);
     ALUNOSDATA.splice(id, 1);
     navigate('/alunos');
   }
 
+  //Delete Grade
   function removeGrade(id) {
     alunoInfo.grades.splice(id, 1);
   };
 
+  //Add Grade
   const [input, setInput] = useState('');
 
   function saveInput(e) {
@@ -47,13 +54,13 @@ const SingleAluno = () => {
   }
   
   function addGrade() {
-    const copyAluno = ({...alunoInfo});
-    copyAluno.grades.push(input);
-    setAlunoInfo({...copyAluno});
-    setInput('');
+    if (input !== '') {
+      const copyAluno = ({...alunoInfo});
+      copyAluno.grades.push(input);
+      setAlunoInfo({...copyAluno});
+      setInput('');
+    }
   }
-
-  const prettyBirth = new Date(alunoInfo.birth).toLocaleDateString();
 
   return (
       <section className="row-background mt-0 row">
@@ -140,7 +147,7 @@ const SingleAluno = () => {
                         min='0'
                         max='20'
                       />
-                      <button className="btn btn-element-border d-flex justify-content-center ml-2" onClick={addGrade}>
+                      <button type="button" className="btn btn-element-border d-flex justify-content-center ml-2" onClick={addGrade}>
                         <i className="btn btn-element btn-success fa-solid fa-plus"></i>
                       </button>
                     </div>
@@ -159,7 +166,7 @@ const SingleAluno = () => {
                           maxLength="20"
                       />
                       {/* remove item */}
-                      <button className="btn btn-element-border d-flex justify-items-center ml-2" onClick={(e) => {
+                      <button type="button" className="btn btn-element-border d-flex justify-items-center ml-2" onClick={(e) => {
                         e.preventDefault();
                         removeGrade(id);
                         setAlunoInfo({ ...alunoInfo })}}>

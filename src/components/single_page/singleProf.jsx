@@ -16,10 +16,12 @@ const SingleProf = () => {
       salary: professor.salary
   })
 
+  //Birth Format
   const prettyBirth = new Date(profInfo.birth).toLocaleDateString();
 
   const [edit, setEdit] = useState(false);
 
+  //Submit
   function submitData(e) {
     console.log('submit')
     e.preventDefault();
@@ -31,6 +33,7 @@ const SingleProf = () => {
     setEdit(false);
   }
 
+  //Delete Professor
   function deleteProf() {
     setEdit(false);
     PROFESSORESDATA.splice(id, 1);

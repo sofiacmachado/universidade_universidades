@@ -12,8 +12,10 @@ const AddProf = () => {
     salary: ""
   })
  
+  //Birth Format
   const prettyBirth = new Date(profInfo.birth).toLocaleDateString();
-  
+ 
+  //Submit
   function submitData(e) {
     e.preventDefault();
     addProfessorData({
@@ -24,6 +26,7 @@ const AddProf = () => {
     navigate('/professores');
   }
 
+  //Cancel
   function cancelProf() {
     navigate('/professores');
   }

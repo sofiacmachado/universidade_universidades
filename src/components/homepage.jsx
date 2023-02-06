@@ -1,9 +1,6 @@
 import React from 'react';
 import { CURSOSDATA, ALUNOSDATA, PROFESSORESDATA } from '../database';
 import { Link } from 'react-router-dom';
-import img1 from "../assets/universidade_das_universidades_1.jpg";
-import img2 from "../assets/universidade_das_universidades_2.jpg";
-import img3 from "../assets/universidade_das_universidades_3.jpg";
 
 const Homepage = () => {
 
@@ -14,47 +11,6 @@ const Homepage = () => {
 
     return (
         <React.Fragment>
-            {/* Hero Section */}
-            <section className="hero-section container">
-            <div className="slideshow-container">
-
-            <Link to="/cursos">
-                <div className="mySlides">
-                    <img src={img1} />
-                    <div className="hero-citation">
-                        <h2 className="hero-title">CURSOS</h2>
-                        <h3 className="hero-subtitle">Consulta os cursos disponíveis</h3>
-                    </div>
-                </div>
-            </Link>
-    
-            <Link to="/professores">
-                <div className="mySlides">
-                    <img src={img2} />
-                    <div className="hero-citation">
-                        <h2 className="hero-title">PROFESSORES</h2>
-                        <h3 className="hero-subtitle">Consulta o corpo docente</h3>
-                    </div>
-                </div>
-            </Link>
-                
-            <Link to="/alunos">
-                <div className="mySlides">
-                    <img src={img3} />
-                    <div className="hero-citation">
-                        <h2 className="hero-title">ALUNOS</h2>
-                        <h3 className="hero-subtitle">Consulta a listagem de alunos</h3>
-                    </div>
-                </div>
-            </Link>
-                {/* Next and previous buttons */}
-                <a className="prev" onClick="plusSlides(-1)">&#10094;</a>
-                <a className="next" onClick="plusSlides(1)">&#10095;</a>
-    
-            </div>
-            <br/>
-            </section>
-    
             {/* Degree Section */}            
             <section className="row-background mt-0 row">
                 <div className="row-section container">

@@ -3,8 +3,8 @@ import {Link} from "react-router-dom";
 import { ALUNOSDATA } from '../database';
 
 
-const Alunos = () => {
-
+const Alunos = (props) => {
+console.log(props.x)
   const alunoList = ALUNOSDATA;
 
   return (

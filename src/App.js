@@ -1,5 +1,6 @@
 import './css/styles.css';
 import Layout from "./components/Layout";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from './components/homepage'
 import Alunos from './components/alunos';
@@ -11,9 +12,10 @@ import SingleCurso from "./components/single_page/singleCurso";
 import AddCurso from './components/add/addCurso';
 import AddAluno from './components/add/addAluno';
 import AddProf from './components/add/addProf';
-
+import Login from './components/login/login';
 
 export default function App() {
+
     return (
     <BrowserRouter>
       <Routes>

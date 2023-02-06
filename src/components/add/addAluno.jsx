@@ -13,26 +13,34 @@ const AddAluno = () => {
     grades: []
   })
 
+  //Birth Format
+  const prettyBirth = new Date(alunoInfo.birth).toLocaleDateString();
+  
+  //Submit
   function submitData(e) {
     e.preventDefault();
     console.log();
     addAlunoData({
       name: alunoInfo.name,
-        birth: alunoInfo.birth,
-        enrollment: alunoInfo.enrollment,
-        grades: alunoInfo.grades
+      birth: alunoInfo.birth,
+      enrollment: alunoInfo.enrollment,
+      grades: alunoInfo.grades
     });
     navigate('/alunos');
   }
   
-  function removeGrade(id) {
-    alunoInfo.grades.splice(id, 1);
-  };
-
+  //Cancel
   function cancelAluno() {
     navigate('/alunos');
   }
+
+  //Delete Grade
+  function removeGrade(id) {
+    alunoInfo.grades.splice(id, 1);
+  };
   
+
+  //Add Grade
   const [input, setInput] = useState('');
 
   function saveInput(e) {
@@ -40,13 +48,14 @@ const AddAluno = () => {
   }
   
   function addGrade() {
-    const copyAluno = ({...alunoInfo});
-    copyAluno.grades.push(input);
-    setAlunoInfo({...copyAluno});
-    setInput('');
+    if (input !== '') {
+      const copyAluno = ({...alunoInfo});
+      copyAluno.grades.push(input);
+      setAlunoInfo({...copyAluno});
+      setInput('');
+    }
   }
 
-  const prettyBirth = new Date(alunoInfo.birth).toLocaleDateString();
 
   return (
       <section className="row-background mt-0 row">
@@ -112,7 +121,7 @@ const AddAluno = () => {
                           min='0'
                           max='20'
                         />
-                        <button className="btn btn-element-border d-flex justify-content-center ml-2" onClick={addGrade}>
+                        <button type="button" className="btn btn-element-border d-flex justify-content-center ml-2" onClick={addGrade}>
                           <i className="btn btn-element btn-success fa-solid fa-plus"></i>
                         </button>
                       </div>
@@ -131,7 +140,7 @@ const AddAluno = () => {
                             maxLength="20"
                         />
                         {/* remove item */}
-                        <button className="btn btn-element-border d-flex justify-items-center ml-2" onClick={(e) => {
+                        <button type="button" className="btn btn-element-border d-flex justify-items-center ml-2" onClick={(e) => {
                           e.preventDefault();
                           removeGrade(id);
                           setAlunoInfo({ ...alunoInfo })}}>

@@ -21,6 +21,7 @@ const SingleCurso = () => {
 
   const [edit, setEdit] = useState(false);
 
+  //Submit
   function submitData(e) {
     e.preventDefault();
     console.log(id);
@@ -31,6 +32,14 @@ const SingleCurso = () => {
     setEdit(false);
   }
   
+  //Delete Curso
+  function deleteCurso() {
+    setEdit(false);
+    CURSOSDATA.splice(id, 1);
+    navigate('/cursos');
+  }
+
+  //Remove classes from semesters
   function removeElementFirst(id) {
     cursoInfo.firstSemesterClasses.splice(id, 1);
   };
@@ -40,12 +49,7 @@ const SingleCurso = () => {
     cursoInfo.thirdSemesterClasses.splice(id, 1);
   };
 
-  function deleteCurso() {
-    setEdit(false);
-    CURSOSDATA.splice(id, 1);
-    navigate('/cursos');
-  }
-  
+  //Add classes to semesters
   const [inputs, setInput] = useState(['', '', '']);
   
   function saveInput(e, i) {
@@ -54,26 +58,32 @@ const SingleCurso = () => {
   }
 
   function addItemFirst(e) {
-    const copyCurso = ({...cursoInfo});
-    cursoInfo.firstSemesterClasses.push(inputs[0]);
-    setCursoInfo({ ...copyCurso })
-    inputs[0] = '';
-    setInput([...inputs]);
+    if (inputs[0] !== '') {
+      const copyCurso = ({...cursoInfo});
+      cursoInfo.firstSemesterClasses.push(inputs[0]);
+      setCursoInfo({ ...copyCurso })
+      inputs[0] = '';
+      setInput([...inputs]);
+    }
   }
 
   function addItemSecond(e) {
-    const copyCurso = ({...cursoInfo});
-    cursoInfo.secondSemesterClasses.push(inputs[1]);
-    setCursoInfo({ ...copyCurso })
-    inputs[1] = '';
-    setInput([...inputs]);
+    if (inputs[1] !== '') {
+      const copyCurso = ({...cursoInfo});
+      cursoInfo.secondSemesterClasses.push(inputs[1]);
+      setCursoInfo({ ...copyCurso })
+      inputs[1] = '';
+      setInput([...inputs]);
+    }
   }
   function addItemThird(e) {
-    const copyCurso = ({...cursoInfo});
-    cursoInfo.thirdSemesterClasses.push(inputs[2]);
-    setCursoInfo({ ...copyCurso })
-    inputs[2] = '';
-    setInput([...inputs]);
+    if (inputs[2] !== '') {
+      const copyCurso = ({...cursoInfo});
+      cursoInfo.thirdSemesterClasses.push(inputs[2]);
+      setCursoInfo({ ...copyCurso })
+      inputs[2] = '';
+      setInput([...inputs]);
+    }
   }
 
   return (
@@ -134,7 +144,7 @@ const SingleCurso = () => {
                         onChange={(e) => {saveInput(e, 0)}}
                         maxLength="70"
                       />
-                      <button className="btn btn-element-border d-flex justify-content-center ml-2" onClick={addItemFirst}>
+                      <button type="button" className="btn btn-element-border d-flex justify-content-center ml-2" onClick={addItemFirst}>
                         <i className="btn btn-element btn-success fa-solid fa-plus"></i>
                       </button>
                     </div>
@@ -155,7 +165,7 @@ const SingleCurso = () => {
                         required
                       />
                       {/* remove item */}
-                      <button className="btn btn-element-border d-flex justify-items-center ml-2" onClick={() => {
+                      <button type="button" className="btn btn-element-border d-flex justify-items-center ml-2" onClick={() => {
                         removeElementFirst(id);
                         setCursoInfo({ ...cursoInfo })}}>
                         <i className="btn btn-danger btn-element rounded-circle fa-solid fa-xmark"></i>
@@ -177,7 +187,7 @@ const SingleCurso = () => {
                         onChange={(e) => {saveInput(e, 1)}}
                         maxLength="70"
                       />
-                      <button className="btn btn-element-border d-flex justify-content-center ml-2" onClick={addItemSecond}>
+                      <button type="button" className="btn btn-element-border d-flex justify-content-center ml-2" onClick={addItemSecond}>
                         <i className="btn btn-element btn-success fa-solid fa-plus"></i>
                       </button>
                     </div>
@@ -198,7 +208,7 @@ const SingleCurso = () => {
                         required
                       />
                       {/* remove item */}
-                      <button className="btn btn-element-border d-flex ml-2" onClick={() => {
+                      <button type="button" className="btn btn-element-border d-flex ml-2" onClick={() => {
                         removeElementSecond(id);
                         setCursoInfo({ ...cursoInfo })}}>
                         <i className="btn btn-danger btn-element fa-solid fa-xmark"></i>
@@ -219,7 +229,7 @@ const SingleCurso = () => {
                         onChange={(e) => {saveInput(e, 2)}}
                         maxLength="70"
                       />
-                      <button className="btn btn-element-border d-flex justify-content-center ml-2" onClick={addItemThird}>
+                      <button type="button" className="btn btn-element-border d-flex justify-content-center ml-2" onClick={addItemThird}>
                         <i className="btn btn-element btn-success fa-solid fa-plus"></i>
                       </button>
                     </div>
@@ -238,7 +248,7 @@ const SingleCurso = () => {
                         maxLength="70"
                         required
                       />
-                      <button className="btn btn-element-border d-flex ml-2" onClick={() => {
+                      <button type="button" className="btn btn-element-border d-flex ml-2" onClick={() => {
                         removeElementThird(id);
                         setCursoInfo({ ...cursoInfo })}}>
                         <i className="btn btn-danger btn-element fa-solid fa-xmark"></i>
