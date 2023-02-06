@@ -1,6 +1,8 @@
 # Universidade das Universidades
 This project is a college management website, where the user can interact with the database adding/editing/removing courses/professors/students.
 
+You can access the project directly in [this github page](https://sofiacmachado.github.io/universidade_universidades/).
+
 Mockup available [here](https://drive.google.com/file/d/1-pisKryBRiEXwU8GH9wXt_-O6g1sz-ku/view?usp=sharing).
 
 ## Run the application locally
