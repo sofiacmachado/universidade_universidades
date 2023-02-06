@@ -71,14 +71,14 @@ const SingleAluno = () => {
             <div className="row">
               <div className="row-image col-md-4 col-sm-4">
                <ul className="form-submit-list">
-                  <li className="form-submit-list-item">
-                   <h4>Data de Nascimento: {prettyBirth}</h4>
+                  <li className="form-submit-list-item d-block">
+                   <h4>Data de Nascimento: <p>{prettyBirth}</p></h4>
                   </li>
-                  <li className="form-submit-list-item">
-                    <h4>Notas: {aluno.grades.join(', ')}</h4>
+                  <li className="form-submit-list-item d-block">
+                    <h4>Notas: <p>{aluno.grades.join(', ')}</p></h4>
                   </li>
-                  <li className="form-submit-list-item">
-                    <h4>Matrícula: {aluno.enrollment}</h4>
+                  <li className="form-submit-list-item d-block">
+                    <h4>Matrícula: <p>{aluno.enrollment}</p></h4>
                   </li>
                 </ul>
             </div>

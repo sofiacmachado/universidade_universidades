@@ -1,10 +1,11 @@
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import logo from '../assets/logo.png'
 
 function Navbar({isSubmitted, setIsSubmitted}) {
     return (
         <header>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="navbar-brand"><Link to='/'>Universidade das Universidades</Link></div>
+        <nav className="navbar navbar-expand-lg navbar-light">
+            <div className="navbar-brand"><Link to='/'><img className="navbar-logo" src={logo} alt="Logo" /></Link></div>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
@@ -24,6 +25,7 @@ function Navbar({isSubmitted, setIsSubmitted}) {
               </div>
             </div>
           </nav>
+          <hr className="navbar-hr" />
     </header>
     )
 }

@@ -8,11 +8,24 @@ a:hover {
     color: green;
 }
 
+.navbar {
+    font-family: "Martel", sans-serif;
+}
+.navbar-logo {
+    width: 12%;
+}
+
+.navbar-hr {
+    border-top: solid 2px antiquewhite;
+}
 
 /* Section */
 
+.hr-section {
+    max-width: 1140px;
+}
+
 .row-background {
-    background-color:antiquewhite;
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding-top: 2rem;
@@ -29,7 +42,7 @@ a:hover {
 
 .row-title {
     font-size: 2rem;
-    font-family: 'Frank Ruhl Libre';
+    font-family: 'Frank Ruhl Libre', serif;
 }
 
 
@@ -39,9 +52,15 @@ a:hover {
 }
 
 .row-image {
-    font-family: 'Kanit';
+    font-family: 'Kanit', sans-serif;
     font-size: 1rem;
     font-weight: 200;
+    
+}
+
+.row-image-home {
+    justify-content: center;
+    display: flex;
 }
 
 .ver-mais {
@@ -54,6 +73,11 @@ a:hover {
 
 
 /* Items List */
+
+.image-avatar {
+    max-height: 100px;
+}
+
 .btn-element-border {
     padding: 0;
     margin: 0;
@@ -76,6 +100,18 @@ a:hover {
 .form-submit-list-item {
     list-style-type: none;
 }
+
+.form-submit-list-item h4 {
+    font-weight: 300;
+    display: flex;
+}
+
+.form-submit-list-item p {
+    font-weight: 200;
+    margin-left: 5px;
+    display: flex;
+}
+
 .add-item-form {
     background-color: #ecebeb;
 }
@@ -88,8 +124,8 @@ a:hover {
     justify-content: center;
     flex-direction: column;
     gap: 20px;
-    height: 100vh;
-    background-color: #f8f9fd;
+    height: 500px;
+    margin-bottom: 20px;
   }
   
   .button-container {
@@ -128,6 +164,10 @@ a:hover {
 
   
 /* Footer */
+
+footer {
+    margin-top: 30px;
+}
 
 footer .row {
     justify-content: center;
