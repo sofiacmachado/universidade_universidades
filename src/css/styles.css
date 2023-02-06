@@ -63,6 +63,11 @@ a:hover {
     display: flex;
 }
 
+.row-image-home {
+    justify-content: center;
+    display: flex;
+}
+
 .ver-mais {
     display: flex;
     justify-content: end;
@@ -76,6 +81,8 @@ a:hover {
 
 .image-avatar {
     max-height: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .btn-element-border {
