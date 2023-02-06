@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/universidade_universidades/static/css/main.51a8d1dd.css",
+    "main.js": "/universidade_universidades/static/js/main.8fcc3f70.js",
+    "static/js/787.4abe6e65.chunk.js": "/universidade_universidades/static/js/787.4abe6e65.chunk.js",
+    "static/media/logo.png": "/universidade_universidades/static/media/logo.9c8d992aab5b071f5b65.png",
+    "static/media/avatar_prof.png": "/universidade_universidades/static/media/avatar_prof.24d5f58251464ecf8689.png",
+    "static/media/avatar_curso.png": "/universidade_universidades/static/media/avatar_curso.7b93eb1ed50cfb2ff86f.png",
+    "static/media/avatar_aluno.png": "/universidade_universidades/static/media/avatar_aluno.db501d1ea58e9fe5f879.png",
+    "index.html": "/universidade_universidades/index.html",
+    "main.51a8d1dd.css.map": "/universidade_universidades/static/css/main.51a8d1dd.css.map",
+    "main.8fcc3f70.js.map": "/universidade_universidades/static/js/main.8fcc3f70.js.map",
+    "787.4abe6e65.chunk.js.map": "/universidade_universidades/static/js/787.4abe6e65.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.51a8d1dd.css",
+    "static/js/main.8fcc3f70.js"
+  ]
+}
