@@ -1,6 +1,7 @@
 import './css/styles.css';
 import Layout from "./components/Layout";
 import React from "react";
+import { HashRouter } from "react-router-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from './components/homepage'
 import Alunos from './components/alunos';
@@ -17,7 +18,7 @@ import Login from './components/login/login';
 export default function App() {
 
     return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Homepage />} />
@@ -32,6 +33,6 @@ export default function App() {
           <Route path="/cursos/singleCurso/:id" element={<SingleCurso />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
