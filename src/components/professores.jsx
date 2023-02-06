@@ -11,6 +11,7 @@ const Professores = () => {
           <div className="row-section container">
             <div className="col-md-12 p-0">
               <h2 className="row-title mb-3">Professores</h2>
+              <Link to ="/professores/addProf"><button className="btn btn-success mb-2">Adicionar Professor</button></Link>
               <div className="row">
               {profList.map((prof, id) => {
                 return(

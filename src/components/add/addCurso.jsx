@@ -14,8 +14,6 @@ const AddCurso = () => {
     thirdSemesterClasses: []
   })
 
-  const [edit, setEdit] = useState(true);
-
   function submitData(e) {
     e.preventDefault();
     console.log();
@@ -34,6 +32,7 @@ const AddCurso = () => {
         }
     ]
     });
+    navigate('/cursos');
   }
   
   function removeElementFirst(e, id) {
@@ -49,7 +48,6 @@ const AddCurso = () => {
   };
 
   function cancelCurso() {
-    setEdit(false);
     navigate('/cursos');
   }
   
@@ -88,7 +86,7 @@ const AddCurso = () => {
   return (
       <section className="row-background mt-0 row">
         <div className="row-section container">
-        <form onSubmit={((e) => e, submitData)} className="col-md-12 p-0">
+        <form onSubmit={submitData} className="col-md-12 p-0">
           <div className="row">
             <div className="row-image col-md-4 col-sm-4">
               <ul className="form-submit-list">
@@ -234,7 +232,7 @@ const AddCurso = () => {
               </ul>
               </div>
             </div>
-            <button type="submit" onClick={() => setEdit(false)} className="btn btn-success mt-3 mr-3">Guardar</button>
+            <button type="submit" className="btn btn-success mt-3 mr-3">Guardar</button>
             <button className="btn btn-danger mt-3" onClick={cancelCurso}>Cancelar</button>
           </form>
         </div>

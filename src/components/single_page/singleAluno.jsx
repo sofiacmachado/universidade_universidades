@@ -12,7 +12,6 @@ const SingleAluno = () => {
 
   const [alunoInfo, setAlunoInfo] = useState({
     name: aluno.name,
-    image: aluno.image,
     birth: aluno.birth,
     enrollment: aluno.enrollment,
     grades: aluno.grades
@@ -119,7 +118,7 @@ const SingleAluno = () => {
                       type="number"
                       className="form-control mb-2"
                       id="inputEnrollment"
-                      placeholder={`${alunoInfo.enrollment}$`}
+                      placeholder={alunoInfo.enrollment}
                       value={alunoInfo.enrollment}
                       onChange={(e) => setAlunoInfo({ ...alunoInfo, enrollment: e.target.value })}
                       maxLength="8"

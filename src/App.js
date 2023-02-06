@@ -9,6 +9,8 @@ import SingleProf from './components/single_page/singleProf';
 import SingleAluno from "./components/single_page/singleAluno";
 import SingleCurso from "./components/single_page/singleCurso";
 import AddCurso from './components/add/addCurso';
+import AddAluno from './components/add/addAluno';
+import AddProf from './components/add/addProf';
 
 
 export default function App() {
@@ -18,7 +20,9 @@ export default function App() {
         <Route path='/' element={<Layout />}>
           <Route index element={<Homepage />} />
           <Route path="/alunos" element={<Alunos />} />
+          <Route path="/alunos/addAluno" element={<AddAluno />} />
           <Route path="/professores" element={<Professores />} />
+          <Route path="/professores/addProf" element={<AddProf />} />
           <Route path="/cursos" element={<Cursos />} />
           <Route path="/cursos/addCurso" element={<AddCurso />} />
           <Route path="/professores/singleProf/:id" element={<SingleProf />} />

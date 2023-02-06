@@ -12,7 +12,7 @@ const Alunos = () => {
         <div className="row-section container">
           <div className="col-md-12 p-0">
             <h2 className="row-title mb-3">Alunos</h2>
-            <Link to ="/cursos/addCurso"><button className="btn btn-success mb-2">Adicionar Aluno</button></Link>
+            <Link to ="/alunos/addAluno"><button className="btn btn-success mb-2">Adicionar Aluno</button></Link>
             <div className="row">
             {alunoList.map((aluno, id) => {
                 return(
